@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -94,6 +95,8 @@ public class ArticleDetailFragment extends Fragment implements
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
+
+
 //        mDrawInsetsFrameLayout = (DrawInsetsFrameLayout)
 //                mRootView.findViewById(R.id.draw_insets_frame_layout);
 //        mDrawInsetsFrameLayout.setOnInsetsCallback(new DrawInsetsFrameLayout.OnInsetsCallback() {
@@ -171,6 +174,9 @@ public class ArticleDetailFragment extends Fragment implements
 //        TextView titleView = (TextView) mRootView.findViewById(R.id.article_title);
 //        TextView bylineView = (TextView) mRootView.findViewById(R.id.article_byline);
 //        bylineView.setMovementMethod(new LinkMovementMethod());
+        CollapsingToolbarLayout ctl =
+                (CollapsingToolbarLayout) mRootView.findViewById(R.id.collapsing_toolbar_layout);
+
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
         //// TODO: 6/23/16 remove typeface
         bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
@@ -180,6 +186,7 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
 //            titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
+            ctl.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
 //            bylineView.setText(Html.fromHtml(
 //                    DateUtils.getRelativeTimeSpanString(
 //                            mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
