@@ -45,11 +45,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         mToolbar = (Toolbar) findViewById(R.id.main_toolbar);
 
 
-        //final View toolbarContainerView = findViewById(R.id.main_collapsing);
-        CollapsingToolbarLayout collapsingToolbarLayout =
-                (CollapsingToolbarLayout) findViewById(R.id.main_collapsing);
-        collapsingToolbarLayout.setTitle("XYZ Reader");
-        //collapsingToolbarLayout.text
+        final View toolbarContainerView = findViewById(R.id.main_collapsing);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
