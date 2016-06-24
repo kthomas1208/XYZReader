@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.text.Html;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -177,6 +178,10 @@ public class ArticleDetailFragment extends Fragment implements
         CollapsingToolbarLayout ctl =
                 (CollapsingToolbarLayout) mRootView.findViewById(R.id.collapsing_toolbar_layout);
 
+
+
+        TextView detailTitle = (TextView) mRootView.findViewById(R.id.detail_article_title);
+        TextView detailSubtitle = (TextView) mRootView.findViewById(R.id.detail_article_subtitle);
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
         //// TODO: 6/23/16 remove typeface
         bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
@@ -186,15 +191,15 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
 //            titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
-            ctl.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
-//            bylineView.setText(Html.fromHtml(
-//                    DateUtils.getRelativeTimeSpanString(
-//                            mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
-//                            System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
-//                            DateUtils.FORMAT_ABBREV_ALL).toString()
-//                            + " by <font color='#ffffff'>"
-//                            + mCursor.getString(ArticleLoader.Query.AUTHOR)
-//                            + "</font>"));
+            detailTitle.setText(mCursor.getString(ArticleLoader.Query.TITLE));
+            detailSubtitle.setText(Html.fromHtml(
+                    DateUtils.getRelativeTimeSpanString(
+                            mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
+                            System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
+                            DateUtils.FORMAT_ABBREV_ALL).toString()
+                            + " by <font color='#ffffff'>"
+                            + mCursor.getString(ArticleLoader.Query.AUTHOR)
+                            + "</font>"));
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
 //            ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
 //                    .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
