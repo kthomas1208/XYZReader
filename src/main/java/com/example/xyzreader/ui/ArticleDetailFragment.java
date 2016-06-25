@@ -6,7 +6,6 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -190,9 +189,6 @@ public class ArticleDetailFragment extends Fragment implements
         TextView detailTitle = (TextView) mRootView.findViewById(R.id.detail_article_title);
         TextView detailSubtitle = (TextView) mRootView.findViewById(R.id.detail_article_subtitle);
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
-
-        //// TODO: 6/23/16 remove typeface
-        bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
 
         if (mCursor != null) {
             mRootView.setAlpha(0);
