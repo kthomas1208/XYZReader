@@ -2,6 +2,7 @@ package com.example.xyzreader.ui;
 
 import android.app.Fragment;
 import android.app.LoaderManager;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -9,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.graphics.Palette;
 import android.text.Html;
 import android.text.format.DateUtils;
@@ -48,6 +50,7 @@ public class ArticleDetailFragment extends Fragment implements
     private View mPhotoContainerView;
     private ImageView mPhotoView;
     private ImageView mDetailImage;
+    private TextView mTitleText;
     private int mScrollY;
     private boolean mIsCard = false;
     private int mStatusBarFullOpacityBottom;
@@ -129,15 +132,15 @@ public class ArticleDetailFragment extends Fragment implements
 
         mStatusBarColorDrawable = new ColorDrawable(0);
 
-//        mRootView.findViewById(R.id.share_fab).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
-//                        .setType("text/plain")
-//                        .setText("Some sample text")
-//                        .getIntent(), getString(R.string.action_share)));
-//            }
-//        });
+        mRootView.findViewById(R.id.share_fab).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
+                        .setType("text/plain")
+                        .setText(mTitleText.getText())
+                        .getIntent(), getString(R.string.action_share)));
+            }
+        });
 
         bindViews();
         //updateStatusBar();
@@ -186,7 +189,7 @@ public class ArticleDetailFragment extends Fragment implements
 
 
 
-        TextView detailTitle = (TextView) mRootView.findViewById(R.id.detail_article_title);
+        mTitleText = (TextView) mRootView.findViewById(R.id.detail_article_title);
         TextView detailSubtitle = (TextView) mRootView.findViewById(R.id.detail_article_subtitle);
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
 
@@ -194,8 +197,7 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.setAlpha(0);
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
-//            titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
-            detailTitle.setText(mCursor.getString(ArticleLoader.Query.TITLE));
+            mTitleText.setText(mCursor.getString(ArticleLoader.Query.TITLE));
             detailSubtitle.setText(Html.fromHtml(
                     DateUtils.getRelativeTimeSpanString(
                             mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
