@@ -136,6 +136,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/material_flat"
                 app:layout_collapseMode="parallax"
+                android:transitionName="@string/transition_photo"
                 tools:ignore="ContentDescription"
                 />
         </android.support.design.widget.CollapsingToolbarLayout>
