@@ -9,7 +9,8 @@
         android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:paddingTop="?actionBarSize">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
@@ -22,38 +23,18 @@
             android:paddingBottom="28dp" />
     </android.support.v4.widget.SwipeRefreshLayout>
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/main.appbar"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/main.toolbar"
         android:layout_width="match_parent"
-        android:layout_height="112dp"
-        style="@style/Theme.Bacon"
-        android:fitsSystemWindows="true"
-        >
+        android:layout_height="?attr/actionBarSize"
+        style="@style/ToolbarStyle">
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/main.collapsing"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMarginStart="48dp"
-            app:expandedTitleMarginEnd="64dp"
-            >
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/main.toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:layout_collapseMode="pin"
-                >
-                <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/logo"
-                android:contentDescription="@string/app_name" />
-                </android.support.v7.widget.Toolbar>
-        </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
+            <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/app_name" />
+
+        </android.support.v7.widget.Toolbar>
 
 </android.support.design.widget.CoordinatorLayout>

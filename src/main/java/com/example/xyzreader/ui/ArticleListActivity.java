@@ -44,9 +44,6 @@ public class ArticleListActivity extends AppCompatActivity implements
 
         mToolbar = (Toolbar) findViewById(R.id.main_toolbar);
 
-
-        final View toolbarContainerView = findViewById(R.id.main_collapsing);
-
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -149,7 +146,6 @@ public class ArticleListActivity extends AppCompatActivity implements
                             thumbnail,
                             getString(R.string.transition_photo))
                             .toBundle();
-                    //bundle = null;
 
                     startActivity(intent, bundle);
                 }
