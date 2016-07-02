@@ -97,6 +97,16 @@ public class ArticleDetailFragment extends Fragment implements
         getLoaderManager().initLoader(0, null, this);
     }
 
+//    @Override
+//    public void onInflate(Activity activity, AttributeSet attrs, Bundle savedInstanceState) {
+//        super.onInflate(activity, attrs, savedInstanceState);
+//        TypedArray a = activity.obtainStyledAttributes(attrs, R.styleable.ArticleDetailFragment,
+//                0, 0);
+//
+//        mHoldForTransition = a.getBoolean(R.styleable.ArticleDetailFragment_sharedElementTransitions, false);
+//        a.recycle();
+//    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {

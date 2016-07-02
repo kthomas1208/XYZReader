@@ -37,6 +37,49 @@ public class ArticleListActivity extends AppCompatActivity implements
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
 
+    private Bundle mTmpReenterState;
+    private boolean mIsDetailsActivityStarted;
+
+    static final String EXTRA_STARTING_ALBUM_POSITION = "extra_starting_item_position";
+    static final String EXTRA_CURRENT_ALBUM_POSITION = "extra_current_item_position";
+
+//    private final SharedElementCallback mCallback = new SharedElementCallback() {
+//        @Override
+//        public void onMapSharedElements(List<String> names, Map<String, View> sharedElements) {
+//            if (mTmpReenterState != null) {
+//                int startingPosition = mTmpReenterState.getInt(EXTRA_STARTING_ALBUM_POSITION);
+//                int currentPosition = mTmpReenterState.getInt(EXTRA_CURRENT_ALBUM_POSITION);
+//                if (startingPosition != currentPosition) {
+//                    // If startingPosition != currentPosition the user must have swiped to a
+//                    // different page in the DetailsActivity. We must update the shared element
+//                    // so that the correct one falls into place.
+//                    String newTransitionName = ALBUM_NAMES[currentPosition];
+//                    View newSharedElement = mRecyclerView.findViewWithTag(newTransitionName);
+//                    if (newSharedElement != null) {
+//                        names.clear();
+//                        names.add(newTransitionName);
+//                        sharedElements.clear();
+//                        sharedElements.put(newTransitionName, newSharedElement);
+//                    }
+//                }
+//
+//                mTmpReenterState = null;
+//            } else {
+//                // If mTmpReenterState is null, then the activity is exiting.
+//                View navigationBar = findViewById(android.R.id.navigationBarBackground);
+//                View statusBar = findViewById(android.R.id.statusBarBackground);
+//                if (navigationBar != null) {
+//                    names.add(navigationBar.getTransitionName());
+//                    sharedElements.put(navigationBar.getTransitionName(), navigationBar);
+//                }
+//                if (statusBar != null) {
+//                    names.add(statusBar.getTransitionName());
+//                    sharedElements.put(statusBar.getTransitionName(), statusBar);
+//                }
+//            }
+//        }
+//    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,6 +150,8 @@ public class ArticleListActivity extends AppCompatActivity implements
         StaggeredGridLayoutManager sglm =
                 new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(sglm);
+
+        supportStartPostponedEnterTransition();
     }
 
     @Override
