@@ -14,6 +14,9 @@ This app is for Udacity's Android Nanodegree. The goal is to update an app to ma
 The app uses dummy data to list articles in a feed reader format. Each article is listed on the main page as a card. The user can click
 on each card to see the full article. 
 
+<img src="https://github.com/kthomas1208/XYZReader/blob/master/MainActivityScreenshot.png" width="432" height="768" />
+<img src="https://github.com/kthomas1208/XYZReader/blob/master/DetailScreenshot.png" width="432" height="768" />
+
 ### Running the app yourself
 You'll need to download Android Studio or some other IDE and clone this repository from your version control system. 
 
