@@ -24,7 +24,7 @@
         <item name="android:windowContentTransitions">true</item>
     </style>
 
-    <style name="ToolbarStyle">
+    <style name="AppBarStyle">
         <item name="android:background">@color/theme_primary</item>
         <item name="android:elevation">@dimen/app_bar_elevation</item>
     </style>
