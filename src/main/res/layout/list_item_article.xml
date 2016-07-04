@@ -1,11 +1,10 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="4dp"
-    android:layout_marginRight="4dp"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
+    android:layout_marginLeft="@dimen/list_card_margin"
+    android:layout_marginRight="@dimen/list_card_margin"
+    android:layout_marginTop="@dimen/list_card_margin"
+    android:layout_marginBottom="@dimen/list_card_margin"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?selectableItemBackground">
@@ -19,7 +18,7 @@
         <com.example.xyzreader.ui.DynamicHeightNetworkImageView
             android:id="@+id/thumbnail"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/thumbnail_height"
             android:background="@color/photo_placeholder"
             android:transitionName="@string/transition_photo"
             />
@@ -29,24 +28,24 @@
             style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingTop="16dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="4dp"
+            android:paddingLeft="@dimen/list_card_side_padding"
+            android:paddingTop="@dimen/list_card_top_padding"
+            android:paddingRight="@dimen/list_card_side_padding"
+            android:paddingBottom="@dimen/list_card_title_bottom_padding"
             android:textColor="@color/primary_text_default_material_light"
             android:ellipsize="end"
-            android:maxLines="4" />
+            android:maxLines="@integer/list_title_max_lines" />
 
         <TextView
             android:id="@+id/article_subtitle"
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="16dp"
-            android:textColor="#6000"
-            android:maxLines="1"
+            android:paddingLeft="@dimen/list_card_side_padding"
+            android:paddingRight="@dimen/list_card_side_padding"
+            android:paddingBottom="@dimen/list_card_subtitle_bottom_padding"
+            android:textColor="@color/subtitle_text"
+            android:maxLines="@integer/list_subtitle_max_lines"
             android:singleLine="true"
             android:ellipsize="end" />
     </LinearLayout>

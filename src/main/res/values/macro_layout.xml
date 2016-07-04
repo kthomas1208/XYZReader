@@ -3,6 +3,14 @@
     <dimen name="list_side_margin">4dp</dimen>
     <dimen name="list_toolbar_side_margin">0dp</dimen>
     <integer name="list_column_count">2</integer>
+    <integer name="list_title_max_lines">4</integer>
+    <integer name="list_subtitle_max_lines">1</integer>
+    <dimen name="thumbnail_height">100dp</dimen>
+    <dimen name="list_card_side_padding">16dp</dimen>
+    <dimen name="list_card_top_padding">16dp</dimen>
+    <dimen name="list_card_title_bottom_padding">4dp</dimen>
+    <dimen name="list_card_subtitle_bottom_padding">16dp</dimen>
+    <dimen name="list_card_margin">4dp</dimen>
 
     <!-- detail -->
     <bool name="detail_is_card">false</bool>
